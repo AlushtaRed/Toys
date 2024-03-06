@@ -26,7 +26,6 @@ public class Main {
 
         Queue<Toy> toyList = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
-            // System.out.println(probability());
             switch (probability()) {
                 case 1:
                     toyList.add(toy1);
@@ -48,21 +47,22 @@ public class Main {
         while (!toyList.isEmpty()) {
             getToy(toyList);
         }
+        System.out.println(toyList);
 
     }
 
-    static void printAsQueue(Queue<Toy> list) {
-        while (!list.isEmpty()) {
-            System.out.println(list.poll());
-        }
-    }
+    // static void printAsQueue(Queue<Toy> list) {
+    //     while (!list.isEmpty()) {
+    //         System.out.println(list.poll());
+    //     }
+    // }
 
     static void getToy(Queue<Toy> list) throws IOException {
         Toy res = list.poll();
         System.out.println(res);
         String filePath = "toys.txt";
         FileWriter writer = new FileWriter(filePath, true);
-            writer.write(res.name);
+            writer.write("Ваш выигрыш: " + res.name);
             writer.write("\n");
             writer.close();
       
